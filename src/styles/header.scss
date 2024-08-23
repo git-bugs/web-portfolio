@@ -1,0 +1,107 @@
+.header {
+  padding: 0 40px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000;
+  font-size: 18px;
+}
+.nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+}
+
+.header-btn {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  height: 19px;
+  justify-content: space-between;
+  position: relative;
+  width: 30px;
+  &::before {
+    background-color: #f3f3f3;
+    content: '';
+    width: 85%;
+    height: 3px;
+    align-self: flex-end;
+  }
+  &::after {
+    background-color: #f3f3f3;
+    content: '';
+    width: 100%;
+    height: 3px;
+    align-self: flex-end;
+  }
+
+  .btn-line {
+    background-color: #f3f3f3;
+    width: 55%;
+    align-self: flex-end;
+    height: 3px;
+    width: 55%;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  font-size: 16px;
+  .nav-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: .3s;
+  }
+  .nav-link{
+    height: 60px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-item:hover {
+    background: var(--main-color);
+    color: #fff;
+  }
+}
+
+@media (max-width: 770px) {
+  .header-btn {
+    display: flex;
+  }
+  .nav-menu {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background-color: rgba(#191919, 0.9);
+    width: 100%;
+    z-index: 3;
+    backdrop-filter: blur(1px);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    .nav-item {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .nav-item:not(:last-child) .nav-link {
+      margin-right: 0px;
+    }
+  }
+  .open {
+    max-height: 200px;
+  }
+  .header {
+    padding: 30px 20px;
+  }
+}
